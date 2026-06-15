@@ -6,6 +6,10 @@ import queue  # for queuing announcements
 from gtts import gTTS  # google Text-to-Speech
 import pygame  # for playing audio files
 import os  # for file operations
+from pathlib import Path  # for reliable model file paths
+# Get this script's folder so model files load on Mac, Windows, or Linux
+BASE_DIR = Path(__file__).resolve().parent
+
 # initialize pygame mixer for audio
 pygame.mixer.init()
 #queue for announcements
@@ -35,7 +39,10 @@ def tts_worker():
 tts_thread = threading.Thread(target=tts_worker, daemon=True)
 tts_thread.start()
 # Load pre-trained MobileNet SSD model for object detection
-net = cv2.dnn.readNetFromCaffe('deploy.prototxt', 'mobilenet_iter_73000.caffemodel')
+net = cv2.dnn.readNetFromCaffe(
+    str(BASE_DIR / "deploy.prototxt"),
+    str(BASE_DIR / "mobilenet_iter_73000.caffemodel")
+)
 # Class labels for COCO dataset
 CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
            "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
