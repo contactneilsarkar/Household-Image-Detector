@@ -122,61 +122,7 @@ AI-Object-Detection/
 
 ---
 
-## Running the Program
 
-Run the script from the project directory:
-
-```bash
-python main.py
-```
-
-or
-
-```bash
-python3 main.py
-```
-
----
-
-## Example Output
-
-Visual Output:
-
-```text
-Person: 92.45%
-Chair: 87.12%
-Bottle: 76.34%
-```
-
-Audio Output:
-
-```text
-Detected person
-Detected chair
-Detected bottle
-```
-
----
-
-## Requirements
-
-* Python 3.9+
-* Webcam
-* Internet connection (required by gTTS to generate speech)
-* Speakers or headphones
-
----
-
-## Future Improvements
-
-* Distance estimation for detected objects
-* Directional guidance (left/right/center)
-* Offline speech synthesis
-* Improved object detection models such as YOLOv8
-* Obstacle avoidance functionality
-* Custom object training
-
----
 
 ## License
 
